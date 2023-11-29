@@ -18,3 +18,11 @@ local function print_stdout(chan_id,data,name)
 end
 vim.fn.jobstart({'ls'}, {on_stdout=print_stdout})
 print(vim.fn.prif('Hello from %s', 'lua'))
+
+
+-- 取env Home
+local Home = os.getenv("HOME")
+-- 可以保留外部文件引入敏感内容
+dotfile( Home .. "/.config/lvim/somefile.lua")
+-- 如果是处理vim的设置env变量的需求
+vim.env.SOME_VAR_FORM_SOMEFILE = SOME_VAR_FORM_SOMEFILE
